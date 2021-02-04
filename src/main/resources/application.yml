@@ -1,3 +1,27 @@
 micronaut:
   application:
     name: micronautLoginwithmicrosoft
+  security:
+    authentication: cookie
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: 'pleaseChangeThisSecretForANewOne'
+              jws-algorithm: 'HS256'
+    oauth2:
+      clients:
+        microsoft:
+          client-id: '********'
+          client-secret: '********'
+          scopes:
+            - user.read
+          authorization:
+            url: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
+          token:
+            url: 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+            auth-method: client-secret-post
+    endpoints:
+      logout:
+        get-allowed: true
