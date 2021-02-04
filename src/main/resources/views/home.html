@@ -6,7 +6,7 @@
 <body>
 <h1>Micronaut Tutorial - Login with Microsoft</h1>
 
-<h2 th:if="${security}">Welcome authenticated user: <span th:text="${security.attributes.user['email']}"></h2>
+<h2 th:if="${security}">Welcome authenticated user: <span th:text="${security.attributes.user['userPrincipalName']}"></h2>
 
 <h2 th:unless="${security}">Welcome anonymous user</h2>
 
